@@ -73,7 +73,7 @@ class _AddType extends DartFix {
         // builder.addInsertion(node.beginToken.offset + node.beginToken.length, (DartEditBuilder builder) {
         //   builder.writeType(element.type);
         // });
-        builder.addSimpleInsertion(node.beginToken.offset + node.beginToken.length, element.type.toString());
+        builder.addSimpleInsertion(node.beginToken.offset, "${element.type.toString()} ");
 
         // // Use the `builder` to replace the variable name
         // builder.addSimpleReplacement(
