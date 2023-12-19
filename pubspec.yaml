@@ -1,0 +1,15 @@
+# pubspec.yaml
+name: glyder_lints
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+
+dependencies:
+  # Analyzer is used for inspecting Dart files.
+  analyzer:
+  analyzer_plugin:
+
+  # Tools for writing lints.
+  custom_lint_builder:
