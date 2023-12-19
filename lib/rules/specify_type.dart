@@ -67,6 +67,8 @@ class _AddType extends DartFix {
         priority: 1,
       );
 
+      print("${node.metadata} ${node.metadata.toList()}");
+
       // Use the changeBuilder to make Dart file edits.
       changeBuilder.addDartFileEdit((DartFileEditBuilder builder) {
         final List<Annotation> nodeMetadata = node.metadata.toList();
