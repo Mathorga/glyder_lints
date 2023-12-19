@@ -11,7 +11,6 @@ class SpecifyType extends DartLintRule {
   static const LintCode _code = LintCode(
     name: "specify_type",
     problemMessage: "Explicitly specify type in variable declarations",
-    correctionMessage: "Specify type",
   );
 
   SpecifyType() : super(code: _code);
@@ -73,7 +72,7 @@ class _AddType extends DartFix {
         // builder.addInsertion(node.beginToken.offset + node.beginToken.length, (DartEditBuilder builder) {
         //   builder.writeType(element.type);
         // });
-        builder.addSimpleInsertion(node.beginToken.offset, "${element.type.toString()} ");
+        builder.addSimpleInsertion(element.nameOffset - 1, "${element.type.toString()} ");
 
         // // Use the `builder` to replace the variable name
         // builder.addSimpleReplacement(
