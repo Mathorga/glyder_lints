@@ -57,7 +57,7 @@ class _AddType extends DartFix {
       final VariableElement? element = node.declaredElement;
 
       // Just return if the current variable declaration is not where the lint error has appeared.
-      if (element == null /*|| !analysisError.sourceRange.intersects(node.sourceRange)*/) {
+      if (element == null || !analysisError.sourceRange.intersects(node.sourceRange)) {
         return;
       }
 
