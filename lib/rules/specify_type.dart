@@ -69,20 +69,13 @@ class _AddType extends DartFix {
 
       // Use the changeBuilder to make Dart file edits.
       changeBuilder.addDartFileEdit((DartFileEditBuilder builder) {
-        // builder.addInsertion(node.beginToken.offset + node.beginToken.length, (DartEditBuilder builder) {
-        //   builder.writeType(element.type);
-        // });
-        builder.addSimpleInsertion(element.nameOffset - 1, "${element.type.toString()} ");
+        // Remove any var token if present.
+        if (node.beginToken.toString() == "var") {
+          builder.addDeletion(SourceRange(node.beginToken.offset, node.beginToken.length));
+        }
 
-        // // Use the `builder` to replace the variable name
-        // builder.addSimpleReplacement(
-        //   SourceRange(element.nameOffset, element.nameLength),
-        //   // the string to be replaced instead of variable name
-        //   element.name.replaceAll(
-        //     "_voldemortRegex",
-        //     "HeWhoMustNotBeNamed",
-        //   ),
-        // );
+        // Add an explicit type.
+        builder.addSimpleInsertion(element.nameOffset, "${element.type.toString()} ");
       });
     });
   }
