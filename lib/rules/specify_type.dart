@@ -22,11 +22,11 @@ class SpecifyType extends DartLintRule {
       final VariableElement? element = node.declaredElement;
 
       // Just return if no variable was found.
-      if (element == null) {
-        return;
-      }
+      // if (element == null) {
+      //   return;
+      // }
 
-      if (element.hasImplicitType) {
+      if (element!.hasImplicitType) {
         reporter.reportErrorForElement(code, element);
       }
     });
