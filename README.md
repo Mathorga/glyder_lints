@@ -5,9 +5,9 @@ Add the following in the `dev_dependencies` section in your `pubspec.yaml` after
 # Linting.
 custom_lint: 0.5.7
 glyder_lints:
-git:
-    url: https://github.com/Mathorga/glyder_lints.git
-    ref: main
+    git:
+        url: https://github.com/Mathorga/glyder_lints.git
+        ref: main
 ```
 
 Add the following at the bottom of the `analysis_options.yaml` if present (create it otherwise):</br>
