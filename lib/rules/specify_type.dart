@@ -69,8 +69,10 @@ class _AddType extends DartFix {
 
       // Use the changeBuilder to make Dart file edits.
       changeBuilder.addDartFileEdit((DartFileEditBuilder builder) {
+        final List<Annotation> nodeMetadata = node.metadata.toList();
+
         // Remove any var token if present.
-        if (node.metadata.isNotEmpty && node.metadata.first.toString() == "var") {
+        if (nodeMetadata.isNotEmpty && nodeMetadata.first.toString() == "var") {
           builder.addDeletion(SourceRange(node.beginToken.offset, node.beginToken.length));
         }
 
