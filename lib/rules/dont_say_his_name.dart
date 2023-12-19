@@ -18,8 +18,8 @@ class DontSayHisName extends DartLintRule {
 
   // Lint rule metadata
   static const _code = LintCode(
-    name: 'dont_say_his_name',
-    problemMessage: 'His name shall not be mentioned',
+    name: "dont_say_his_name",
+    problemMessage: "His name shall not be mentioned",
   );
 
   // `run` is where you analyze a file and report lint errors

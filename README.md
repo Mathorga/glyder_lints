@@ -16,3 +16,8 @@ analyzer:
   plugins:
     - custom_lint
 ```
+
+## Lints List
+  * `amend_model_suffix` -> All model classes should end with the "Model" suffix.
+  * 
+  
