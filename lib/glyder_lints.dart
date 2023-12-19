@@ -2,7 +2,7 @@ import 'package:custom_lint_builder/custom_lint_builder.dart';
 import 'package:glyder_lints/assists/insert_spell_in_string_literal.dart';
 import 'package:glyder_lints/rules/amend_model_suffix.dart';
 import 'package:glyder_lints/rules/dont_say_his_name.dart';
-import 'package:glyder_lints/rules/prefer_single_import_quotes.dart';
+import 'package:glyder_lints/rules/specify_type.dart';
 
 // Plugin entry point.
 PluginBase createPlugin() => _GlyderLints();
@@ -14,7 +14,7 @@ class _GlyderLints extends PluginBase {
   List<LintRule> getLintRules(CustomLintConfigs configs) => [
         DontSayHisName(),
         AmendModelSuffix(),
-        PreferSingleImportQuotes(),
+        SpecifyType(),
       ];
 
   // Assists.
