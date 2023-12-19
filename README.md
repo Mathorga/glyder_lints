@@ -18,6 +18,6 @@ analyzer:
 ```
 
 ## Lints List
-  * `amend_model_suffix` -> All model classes should end with the "Model" suffix.
+  * `specify_type` -> All variable declaration should use explicit types.
   * 
   
