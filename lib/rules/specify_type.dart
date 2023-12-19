@@ -26,7 +26,8 @@ class SpecifyType extends DartLintRule {
         return;
       }
 
-      if (!element.hasImplicitType) {
+      print("GIGIONE ${element.name} - ${element.hasImplicitType}");
+      if (element.hasImplicitType) {
         reporter.reportErrorForElement(code, element);
       }
     });
