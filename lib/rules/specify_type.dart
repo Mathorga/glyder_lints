@@ -38,7 +38,7 @@ class SpecifyType extends DartLintRule {
 
   @override
   List<Fix> getFixes() => [
-        _AddType(),
+        // _AddType(),
       ];
 }
 
@@ -67,16 +67,9 @@ class _AddType extends DartFix {
         priority: 1,
       );
 
-      print("${node.metadata} ${node.metadata.toList()}");
-
       // Use the changeBuilder to make Dart file edits.
       changeBuilder.addDartFileEdit((DartFileEditBuilder builder) {
-        final List<Annotation> nodeMetadata = node.metadata.toList();
-
-        // Remove any var token if present.
-        if (nodeMetadata.isNotEmpty && nodeMetadata.first.toString() == "var") {
-          builder.addDeletion(SourceRange(node.beginToken.offset, node.beginToken.length));
-        }
+        // TODO Remove any var token if present.
 
         // Add an explicit type.
         builder.addSimpleInsertion(element.nameOffset, "${element.type.toString()} ");
