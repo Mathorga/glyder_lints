@@ -43,7 +43,7 @@ class SpecifyType extends DartLintRule {
       ];
 }
 
-// Fix that replaces Voldermort's name with another string
+/// Fixes the missing type by inserting it.
 class _AddType extends DartFix {
   @override
   void run(
@@ -57,8 +57,7 @@ class _AddType extends DartFix {
     context.registry.addVariableDeclaration((VariableDeclaration node) {
       final VariableElement? element = node.declaredElement;
 
-      // `return` if the current variable declaration is not where the lint
-      // error has appeared
+      // Just return if the current variable declaration is not where the lint error has appeared.
       if (element == null || !analysisError.sourceRange.intersects(node.sourceRange)) {
         return;
       }
@@ -71,9 +70,10 @@ class _AddType extends DartFix {
 
       // Use the changeBuilder to make Dart file edits.
       changeBuilder.addDartFileEdit((DartFileEditBuilder builder) {
-        builder.addInsertion(node.beginToken.offset + node.beginToken.length, (DartEditBuilder builder) {
-          builder.writeType(element.type);
-        });
+        // builder.addInsertion(node.beginToken.offset + node.beginToken.length, (DartEditBuilder builder) {
+        //   builder.writeType(element.type);
+        // });
+        builder.addSimpleInsertion(node.beginToken.offset + node.beginToken.length, element.type.toString());
 
         // // Use the `builder` to replace the variable name
         // builder.addSimpleReplacement(
