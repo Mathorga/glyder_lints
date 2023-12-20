@@ -1,4 +1,6 @@
 # Glyder Lints
+This package defines all custom lint rules for flutter applications and is built on top of the [custom_lint](https://pub.dev/packages/custom_lint) package.
+
 ## Install
 Add the following in the `dev_dependencies` section in your `pubspec.yaml` after `flutter_lints` if present:</br>
 ```
@@ -15,6 +17,37 @@ Add the following at the bottom of the `analysis_options.yaml` if present (creat
 analyzer:
   plugins:
     - custom_lint
+
+# Uncomment this to customize used lint rules.
+# custom_lint:
+#   rules:
+#     # Disable a single lint rule.
+#     - my_lint_rule: false
+```
+
+### Example analysis_options.yaml file
+```
+include: package:flutter_lints/flutter.yaml
+
+# Flutter linter.
+linter:
+  rules:
+
+# Added custom_lint as additional package.
+analyzer:
+  plugins:
+    - custom_lint
+
+# Plugin customization.
+custom_lint:
+  # Uncomment this to enable specific lint rules at will.
+  # By default all lint rules are enabled.
+  # enable_all_lint_rules: false
+  rules:
+    # Disable a single lint rule.
+    - specify_type: false
+    # Uncomment this to enable a specific rule. Only usefule if enable_all_lint_rules is false.
+    # - other_rule: true
 ```
 
 ## Lint Rules
