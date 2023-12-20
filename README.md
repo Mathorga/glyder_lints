@@ -17,7 +17,5 @@ analyzer:
     - custom_lint
 ```
 
-## Lints List
+## Lint Rules
   * `specify_type` -> All variable declaration should use explicit types.
-  * 
-  
