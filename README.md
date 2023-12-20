@@ -17,12 +17,6 @@ Add the following at the bottom of the `analysis_options.yaml` if present (creat
 analyzer:
   plugins:
     - custom_lint
-
-# Uncomment this to customize used lint rules.
-# custom_lint:
-#   rules:
-#     # Disable a single lint rule.
-#     - my_lint_rule: false
 ```
 
 ### Example analysis_options.yaml file
