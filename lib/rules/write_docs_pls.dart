@@ -27,7 +27,7 @@ class WriteDocsPls extends DartLintRule {
 
       // Only report for public methods.
       if (!declaredMethod.hasOverride && declaredMethod.isPublic && node.documentationComment == null) {
-        reporter.reportErrorForNode(code, node);
+        reporter.reportErrorForElement(code, declaredMethod);
       }
     });
 
