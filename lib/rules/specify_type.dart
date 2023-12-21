@@ -35,11 +35,6 @@ class SpecifyType extends DartLintRule {
       }
     });
   }
-
-  @override
-  List<Fix> getFixes() => [
-        // _AddType(),
-      ];
 }
 
 /// Fixes the missing type by inserting it.
