@@ -1,13 +1,15 @@
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/error/error.dart';
 import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
-/// Enforces the use of documentation comments for classes and methods declarations.
+/// Enforces the use of documentation comments for public classes and methods declarations.
 class WriteDocsPls extends DartLintRule {
   static const LintCode _code = LintCode(
     name: "write_docs_pls",
-    problemMessage: "Provide documentation comments for classes and methods",
+    problemMessage: "Provide documentation comments for public classes and methods",
+    errorSeverity: ErrorSeverity.INFO,
   );
 
   WriteDocsPls() : super(code: _code);
