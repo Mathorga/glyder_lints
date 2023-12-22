@@ -45,4 +45,6 @@ custom_lint:
 ```
 
 ## Lint Rules
-  * `specify_type` -> All variable declaration should use explicit types.
+  * `specify_type` -> Explicitly specify type in variable declarations.
+  * `write_docs_pls` -> Provide documentation comments for public classes and methods.
+  * `static_fields_go_first` -> Static fields should go first in class definition.
