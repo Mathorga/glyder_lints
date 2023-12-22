@@ -10,7 +10,7 @@ class SpecifyType extends DartLintRule {
   static const LintCode _code = LintCode(
     name: "specify_type",
     problemMessage: "Explicitly specify type in variable declarations",
-    errorSeverity: ErrorSeverity.WARNING,
+    errorSeverity: ErrorSeverity.ERROR,
   );
 
   SpecifyType() : super(code: _code);
