@@ -12,7 +12,7 @@ class WriteDocsPls extends DartLintRule {
     errorSeverity: ErrorSeverity.INFO,
   );
 
-  WriteDocsPls() : super(code: _code);
+  const WriteDocsPls() : super(code: _code);
 
   @override
   void run(
@@ -34,15 +34,15 @@ class WriteDocsPls extends DartLintRule {
     });
 
     context.registry.addClassDeclaration((ClassDeclaration node) {
-      final ClassElement? declaredMethod = node.declaredElement;
+      final ClassElement? declaredClass = node.declaredElement;
 
-      if (declaredMethod == null) {
+      if (declaredClass == null) {
         return;
       }
 
       // Only report for public classes.
-      if (declaredMethod.isPublic && node.documentationComment == null) {
-        reporter.reportErrorForNode(code, node);
+      if (declaredClass.isPublic && node.documentationComment == null) {
+        reporter.reportErrorForElement(code, declaredClass);
       }
     });
   }

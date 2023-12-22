@@ -13,7 +13,7 @@ class SpecifyType extends DartLintRule {
     errorSeverity: ErrorSeverity.WARNING,
   );
 
-  SpecifyType() : super(code: _code);
+  const SpecifyType() : super(code: _code);
 
   @override
   void run(
