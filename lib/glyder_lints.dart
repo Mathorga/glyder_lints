@@ -1,5 +1,5 @@
 import 'package:custom_lint_builder/custom_lint_builder.dart';
-import 'package:glyder_lints/rules/amend_inline_comments.dart';
+import 'package:glyder_lints/rules/amend_eol_comments.dart';
 import 'package:glyder_lints/rules/amend_multiple_declarations.dart';
 import 'package:glyder_lints/rules/amend_var_keyword.dart';
 
