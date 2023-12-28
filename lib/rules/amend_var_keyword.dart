@@ -19,6 +19,7 @@ class AmendVarKeyword extends DartLintRule {
     CustomLintContext context,
   ) {
     context.registry.addVariableDeclarationStatement((VariableDeclarationStatement node) {
+      print("BEGIN_TOKEN ${node.beginToken}");
       if (node.beginToken.toString() == "var") {
         reporter.reportErrorForToken(_code, node.beginToken);
       }
