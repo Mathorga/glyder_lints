@@ -1,8 +1,7 @@
 import 'package:custom_lint_builder/custom_lint_builder.dart';
+
 import 'package:glyder_lints/rules/amend_eol_comments.dart';
 import 'package:glyder_lints/rules/amend_multiple_declarations.dart';
-import 'package:glyder_lints/rules/amend_var_keyword.dart';
-
 import 'package:glyder_lints/rules/specify_type.dart';
 import 'package:glyder_lints/rules/static_fields_go_first.dart';
 import 'package:glyder_lints/rules/use_double_quotes.dart';
@@ -20,7 +19,6 @@ class _GlyderLints extends PluginBase {
         WriteDocsPls(),
         StaticFieldsGoFirst(),
         UseDoubleQuotes(),
-        AmendVarKeyword(),
         AmendMultipleDeclarations(),
         AmendEOLComments(),
       ];

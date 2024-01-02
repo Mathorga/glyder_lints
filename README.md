@@ -48,3 +48,6 @@ custom_lint:
   * `specify_type` -> Explicitly specify type in variable declarations.
   * `write_docs_pls` -> Provide documentation comments for public classes and methods.
   * `static_fields_go_first` -> Static fields should go first in class definition.
+  * `use_double_quotes` -> Enforces the use of double quotes for string literals when not used in import statements.
+  * `amend_multiple_declarations` -> Discourages the user from defining multiple variables at once.
+  * `ament_eol_comments` -> Amends the use of end-of-line comments.

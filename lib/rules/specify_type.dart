@@ -2,6 +2,7 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/error/error.dart';
 import 'package:analyzer/error/listener.dart';
+import 'package:analyzer/source/source_range.dart';
 import 'package:analyzer_plugin/utilities/change_builder/change_builder_dart.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
@@ -35,6 +36,11 @@ class SpecifyType extends DartLintRule {
       }
     });
   }
+
+  @override
+  List<Fix> getFixes() => [
+        _AddType(),
+      ];
 }
 
 /// Fixes the missing type by inserting it.
@@ -47,9 +53,8 @@ class _AddType extends DartFix {
     AnalysisError analysisError,
     List<AnalysisError> others,
   ) {
-    // Callback fn that runs on every variable declaration in a file
-    context.registry.addVariableDeclaration((VariableDeclaration node) {
-      final VariableElement? element = node.declaredElement;
+    context.registry.addVariableDeclarationStatement((VariableDeclarationStatement node) {
+      final VariableElement? element = node.variables.variables.first.declaredElement;
 
       // Just return if the current variable declaration is not where the lint error has appeared.
       if (element == null || !analysisError.sourceRange.intersects(node.sourceRange)) {
@@ -64,7 +69,10 @@ class _AddType extends DartFix {
 
       // Use the changeBuilder to make Dart file edits.
       changeBuilder.addDartFileEdit((DartFileEditBuilder builder) {
-        // TODO Remove any var token if present.
+        // Remove any var token if present.
+        if (node.beginToken.toString() == "var") {
+          builder.addDeletion(SourceRange(node.sourceRange.offset, 4));
+        }
 
         // Add an explicit type.
         builder.addSimpleInsertion(element.nameOffset, "${element.type.toString()} ");
